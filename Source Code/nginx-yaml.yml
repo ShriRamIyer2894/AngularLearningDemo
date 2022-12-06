@@ -16,6 +16,6 @@ spec:
     spec:
       containers:
       - name: nginx
-        image: containerrgtest1 .azurecr.io/first_image:latest
+        image: containerrgtest1.azurecr.io/first_image:latest
         ports:
         - containerPort: 80
