@@ -1,21 +1,21 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: azure-vote-back
+  name: PKL-test
 spec:
   replicas: 1
   selector:
     matchLabels:
-      app: azure-vote-back
+      app: PKL-test
   template:
     metadata:
       labels:
-        app: azure-vote-back
+        app: PKL-test
     spec:
       nodeSelector:
         "beta.kubernetes.io/os": linux
       containers:
-      - name: azure-vote-back
+      - name: PKL-test
         image: containerrgtest1.azurecr.io/first_image:latest
         env:
         - name: ALLOW_EMPTY_PASSWORD
@@ -27,9 +27,9 @@ spec:
 apiVersion: v1
 kind: Service
 metadata:
-  name: azure-vote-back
+  name: PKL-test
 spec:
   ports:
   - port: 6379
   selector:
-    app: azure-vote-back
+    app: PKL-test
