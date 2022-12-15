@@ -1,21 +1,21 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: PKL-test
+  name: pkl-test
 spec:
   replicas: 1
   selector:
     matchLabels:
-      app: PKL-test
+      app: pkl-test
   template:
     metadata:
       labels:
-        app: PKL-test
+        app: pkl-test
     spec:
       nodeSelector:
-        "beta.kubernetes.io/os": linux
+        "kubernetes.io/os": linux
       containers:
-      - name: PKL-test
+      - name: pkl-test
         image: containerrgtest1.azurecr.io/first_image:latest
         env:
         - name: ALLOW_EMPTY_PASSWORD
@@ -27,9 +27,9 @@ spec:
 apiVersion: v1
 kind: Service
 metadata:
-  name: PKL-test
+  name: pkl-test
 spec:
   ports:
   - port: 6379
   selector:
-    app: PKL-test
+    app: pkl-test
